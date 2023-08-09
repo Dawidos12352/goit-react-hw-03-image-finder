@@ -5,7 +5,6 @@ import Searchbar from 'components/searchbar/SearchBar';
 import ImageGallery from 'components/imagegallery/ImageGallery';
 import Button from 'components/button/Button';
 import Modal from 'components/modal/Modal';
-import css from './App.module.css';
 
 import {MagnifyingGlass} from "react-loader-spinner";
 import Notiflix from "notiflix";
