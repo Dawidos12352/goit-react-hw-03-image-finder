@@ -9,6 +9,9 @@ import Modal from 'components/modal/Modal';
 import {MagnifyingGlass} from "react-loader-spinner";
 import Notiflix from "notiflix";
 
+import css from "App.module.css"
+
+
 
 export class App extends Component {
   state = {
@@ -123,7 +126,7 @@ export class App extends Component {
     const { largeImageURL, tags } = currentImage;
 
     return (
-      <div >
+      <div className={css.MainContainer}>
         <Searchbar
           fetchImages={fetchImages}
           queryString={queryString}
