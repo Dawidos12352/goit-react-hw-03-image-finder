@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import ImageGalleryItem from 'components/imagegalleryitem/ImageGalleryItem';
 import css from './ImageGallery.module.css';
 
-const ImageGallery = ({ images, onImageClick }) => {
-  return (
-    <ul className={css.ImageGallery}>
-      {images.map(image => (
-        <ImageGalleryItem key={image.id} image={image} onClick={onImageClick} />
-      ))}
-    </ul>
-  );
-};
+class ImageGallery extends Component {
+  render() {
+    const { images, handleOpenModal } = this.props;
+
+    return (
+      <ul className={css.ImageGallery}>
+        {images.map(({ id, webformatURL, tags }) => (
+          <ImageGalleryItem
+            key={id}
+            id={id}
+            webformatURL={webformatURL}
+            tags={tags}
+            handleOpenModal={handleOpenModal}
+          />
+        ))}
+      </ul>
+    );
+  }
+}
 
 ImageGallery.propTypes = {
   images: PropTypes.arrayOf(
@@ -21,7 +31,7 @@ ImageGallery.propTypes = {
       largeImageURL: PropTypes.string.isRequired,
     })
   ).isRequired,
-  onImageClick: PropTypes.func.isRequired,
+  handleOpenModal: PropTypes.func.isRequired,
 };
 
 export default ImageGallery;

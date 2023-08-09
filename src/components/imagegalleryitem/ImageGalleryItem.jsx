@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import css from './ImageGalleryItem.module.css';
 
-const ImageGalleryItem = ({ image, onClick }) => {
-  return (
-    <li className={css.ImageGalleryItem}>
-      <img
-        src={image.webformatURL}
-        alt=""
-        className="ImageGalleryItem-image"
-        onClick={() => onClick(image.largeImageURL)}
-      />
-    </li>
-  );
-};
+class ImageGalleryItem extends Component {
+  render() {
+    const { id, webformatURL, tags, handleOpenModal } = this.props;
+
+    return (
+      <li className={css.ImageGalleryItem} onClick={() => handleOpenModal(id)}>
+        <img
+          className={css.ImageGalleryItemImage}
+          src={webformatURL}
+          alt={tags}
+        />
+      </li>
+    );
+  }
+}
 
 ImageGalleryItem.propTypes = {
   image: PropTypes.shape({
